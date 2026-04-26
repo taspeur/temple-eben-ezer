@@ -726,9 +726,16 @@
             
             // Seed static books if empty (Gratuit section only)
             const staticBooks = [
-                { id: 1, title: "La Sainte Bible", author: "Louis Segond", category: "Bible", type: "free", url: "bibliotheque/La_Sainte_Bible_LSG.pdf", cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400" },
-                { id: 2, title: "Le Voyage du Pèlerin", author: "John Bunyan", category: "Allégorie", type: "free", url: "https://bpc-strasbourg.fr/wp-content/uploads/2016/11/Le_Voyage_du_Pelerin.pdf", cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400" },
-                { id: 3, title: "L'Imitation de Jésus-Christ", author: "Thomas a Kempis", category: "Édification", type: "free", url: "http://jesusmarie.free.fr/imitation_de_jesus_christ.pdf", cover: "https://images.unsplash.com/photo-1474932430478-3a7fb9065ba0?auto=format&fit=crop&w=400" }
+                { id: 1, title: "La Sainte Bible", author: "Louis Segond", category: "Bible", type: "free", url: "bibliotheque/La_Sainte_Bible_LSG.pdf", cover: "https://images.unsplash.com/photo-1504052434569-70ad58ebb66d?auto=format&fit=crop&w=400" },
+                { id: 2, title: "Le Voyage du Pèlerin", author: "John Bunyan", category: "Allégorie", type: "free", url: "https://bpc-strasbourg.fr/wp-content/uploads/2016/11/Le_Voyage_du_Pelerin.pdf", cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400" },
+                { id: 3, title: "L'Imitation de Jésus-Christ", author: "Thomas a Kempis", category: "Édification", type: "free", url: "http://jesusmarie.free.fr/imitation_de_jesus_christ.pdf", cover: "https://images.unsplash.com/photo-1474932430478-3a7fb9065ba0?auto=format&fit=crop&w=400" },
+                { id: 4, title: "Tout par Grâce", author: "C.H. Spurgeon", category: "Salut", type: "free", url: "http://www.samizdat.qc.ca/publications/pdf/ToutParGrace_CHS.pdf", cover: "https://images.unsplash.com/photo-1491843384429-171f1f0d7962?auto=format&fit=crop&w=400" },
+                { id: 5, title: "La Vie de Prière", author: "Andrew Murray", category: "Prière", type: "free", url: "http://www.samizdat.qc.ca/publications/pdf/ViePriere_AM.pdf", cover: "https://images.unsplash.com/photo-1499209974431-9dac3aca74ad?auto=format&fit=crop&w=400" },
+                { id: 6, title: "La Sainteté", author: "J.C. Ryle", category: "Croissance", type: "free", url: "http://www.samizdat.qc.ca/publications/pdf/Saintete_JCR.pdf", cover: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=400" },
+                { id: 7, title: "Le Combat Spirituel", author: "Lorenzo Scupoli", category: "Combat", type: "free", url: "https://www.croixsens.net/livre/combatspirituel.pdf", cover: "https://images.unsplash.com/photo-1516972810927-80185027caad?auto=format&fit=crop&w=400" },
+                { id: 8, title: "Les Fondements de la Foi", author: "APC Tools", category: "Doctrines", type: "free", url: "https://apcwo.org/download/books/french/Les-Fondements-De-La-Foi.pdf", cover: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=400" },
+                { id: 9, title: "L'Éducation des Enfants", author: "APC Tools", category: "Famille", type: "free", url: "https://apcwo.org/download/books/french/Education-Chretienne-Des-Enfants.pdf", cover: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=400" },
+                { id: 10, title: "Marcher par l'Esprit", author: "Watchman Nee", category: "Vie Profonde", type: "free", url: "http://www.samizdat.qc.ca/publications/pdf/MarcheEsprit_MB.pdf", cover: "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=400" }
             ];
 
             const saved = JSON.parse(localStorage.getItem('ebenezer_library') || '[]');
