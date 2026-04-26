@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Département - Temple Eben-Ezer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="https://tse3.mm.bing.net/th/id/OIP.Y-EC0XyjbvVGH3ZyhFHExgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo" class="top-right-logo">
+
+    <nav style="background: rgba(10, 25, 47, 0.95);">
+        <div class="logo-container">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.YL2roIxn1owfBYM6uV2c1wHaDe?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Temple Eben-Ezer" class="logo-img">
+            <div style="display: flex; flex-direction: column;">
+                <div class="logo-title" style="display: none;">Eben-Ezer</div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Retour à l'Accueil</a></li>
+            <li><a href="index.html#departements">Autres Départements</a></li>
+        </ul>
+        <a href="index.html#dons" class="btn-primary" style="padding: 0.5rem 1rem;">Soutenir</a>
+    </nav>
+
+    <div class="hero" id="hero-bg" style="height: 50vh; background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
+        <div class="hero-content">
+            <div id="dept-logo-container"></div>
+            <h1 class="hero-title" id="dept-title" style="font-size: 3.5rem; margin-bottom: 1rem;">Chargement...</h1>
+            <p id="dept-desc" style="color: var(--text-color); font-size: 1.2rem; max-width: 800px; margin: 0 auto;"></p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 2rem;">Programme & Activités</h2>
+                    <ul class="schedule-grid" id="dept-program" style="list-style: none;">
+                        <!-- JS injected -->
+                    </ul>
+                </div>
+                <div style="background: var(--glass-bg); padding: 3rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <!-- Admin Only Panel supprimé selon votre demande (gestion via Dashboard) -->
+                    <h4 style="color: #fff; margin-top: 1rem; margin-bottom: 1rem;">Dirigeants</h4>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-user-tie" style="color: var(--accent-color); margin-right: 10px;"></i> Président(e) : <span id="dept-leader">...</span></p>
+                </div>
+            </div>
+            </div>
+
+            <!-- Espace Communauté JAD (Visible uniquement pour JAD) -->
+            <div id="jad-community-section" style="display: none; margin-top: 5rem;">
+                <div class="section-header" style="text-align: left;">
+                    <h2 class="section-title" style="font-size: 2rem; color: var(--accent-color);">Communauté JAD</h2>
+                    <p style="color: var(--text-muted);">Espace d'échange et de partage d'opinions.</p>
+                </div>
+                
+                    <!-- Interface de Chat de Groupe Moderne -->
+                    <div style="background: var(--glass-bg); padding: 0; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; flex-direction: column; height: 600px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                        <!-- Chat Header -->
+                        <div style="background: rgba(212, 175, 55, 0.1); padding: 1.5rem 2rem; border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 45px; height: 45px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 1.2rem;">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; color: #fff;">Communauté JAD</h4>
+                                <small style="color: #4CAF50;"><i class="fa-solid fa-circle" style="font-size: 0.6rem;"></i> Salon de discussion actif</small>
+                            </div>
+                        </div>
+
+                        <!-- Chat Messages Area -->
+                        <div id="jad-chat-box" style="flex: 1; padding: 2rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; background: url('https://www.transparenttextures.com/patterns/cubes.png');">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <!-- Chat Input Area -->
+                        <div style="padding: 1.5rem 2rem; background: rgba(0,0,0,0.3); border-top: 1px solid var(--glass-border);">
+                            <form id="jad-chat-form" style="display: flex; gap: 15px;">
+                                <input type="text" id="jad-chat-input" placeholder="Écrivez votre message ici..." required style="flex: 1; padding: 1rem 1.5rem; border-radius: 50px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; outline: none;">
+                                <button type="submit" class="btn-primary" style="width: 50px; height: 50px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; padding: 0;">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal du Ministère Section -->
+    <section id="dept-journal-section" class="section alt-bg" style="display: none;">
+        <div class="container">
+            <div class="section-header" style="text-align: left;">
+                <h2 class="section-title" style="font-size: 2rem; color: var(--accent-color);">Journal du Ministère</h2>
+                <p style="color: var(--text-muted);">Dernières nouvelles, éditos et annonces de ce département.</p>
+            </div>
+            <div id="dept-journal-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding-top:0; border-top:none;">
+                <p>&copy; 2026 Temple Eben-Ezer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        const departmentsData = {
+            'caleb': {
+                title: "Génération Caleb (Aînés)",
+                desc: "Le ministère des retraités et des aînés de notre communauté. À l'image de Caleb dans la Bible, ces hommes et femmes continuent de servir le Seigneur avec force et sagesse pour impacter les générations futures.",
+                program: [],
+                leader: "Frère Emmanuel",
+                bg: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            },
+            'asc': {
+                title: "A.S.C (Action des Sœurs)",
+                desc: "Les mamans et sœurs engagées dans la prière fervente, le soutien social et l'édification des sœurs vertueuses.",
+                program: [],
+                leader: "Maman Marie",
+                bg: "https://images.unsplash.com/photo-1546944621-e00f8902d312?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+                logo: "https://www.eadbf.org/asc/wp-content/uploads/sites/3/2024/10/Logo-ASC5.png"
+            },
+            'jad': {
+                title: "J.A.D (Jeunesse)",
+                desc: "",
+                program: [],
+                leader: "",
+                bg: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+                logo: "https://www.eadbf.org/jad/wp-content/uploads/sites/2/2024/11/cropped-Logo-Circulaire-JAD.png"
+            },
+            'edd': {
+                title: "E.D.D (École du Dimanche)",
+                desc: "Cultiver le champ du Seigneur chez nos merveilleux enfants, par des jeux, chants et enseignements bibliques créatifs.",
+                program: [],
+                leader: "Sœur Rachel",
+                bg: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+                logo: "https://tse4.mm.bing.net/th/id/OIP.ZxotS34IBYgmooW4sNuc7gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+            },
+            'chorale': {
+                title: "Chœur & Adoration",
+                desc: "Conduire le peuple de Dieu dans une adoration prophétique et puissante.",
+                program: [],
+                leader: "Directeur Musical",
+                bg: "https://images.unsplash.com/photo-1516280440502-629471138b30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            },
+            'mheb': {
+                title: "M.H.E.B (Hommes)",
+                desc: "Le Mouvement des Hommes de l'Église au Burkina rassemble les frères pour la prière, le témoignage et l'action sociale.",
+                program: [],
+                leader: "Président MHEB",
+                bg: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80",
+                logo: "https://tse1.mm.bing.net/th/id/OIP.KXfFhv3NVbdrwlhNIj91iQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const deptId = urlParams.get('id');
+
+        if (deptId && departmentsData[deptId]) {
+            const data = departmentsData[deptId];
+            document.title = data.title + " - Temple Eben-Ezer";
+            document.getElementById('dept-title').textContent = data.title;
+            document.getElementById('dept-desc').textContent = data.desc;
+            document.getElementById('dept-leader').textContent = data.leader;
+            document.getElementById('hero-bg').style.backgroundImage = `linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('${data.bg}')`;
+
+            if (data.logo) {
+                document.getElementById('dept-logo-container').innerHTML = `<img src="${data.logo}" alt="Logo ${data.title}" style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 1.5rem; background: #fff; padding: 10px; border-radius: 50%; border: 3px solid var(--accent-color);">`;
+            }
+
+            const staticProgram = data.program.map(p => `
+                <li class="schedule-item" style="margin-bottom: 1rem;">
+                    <div class="day" style="font-size: 0.9rem;">${p.day}</div>
+                    <div class="event" style="font-size: 1.1rem;">${p.event}</div>
+                    <div class="time" style="font-size: 0.9rem;">${p.time}</div>
+                </li>
+            `).join('');
+
+            // Load extra dynamic programs from admin
+            const saved = JSON.parse(localStorage.getItem('ebenezer_custom_programs') || '[]');
+            const customProgram = saved.filter(p => p.target === deptId).map(p => `
+                <li class="schedule-item" style="margin-bottom: 1rem; border-color: #fff; background: rgba(212, 175, 55, 0.1);">
+                    <div class="day" style="font-size: 0.9rem; color: #fff;">${p.day}</div>
+                    <div class="event" style="font-size: 1.1rem; color: var(--accent-color); font-weight: 700;">${p.title}</div>
+                    <div class="time" style="font-size: 0.9rem; color: #fff;">${p.time}</div>
+                </li>
+            `).join('');
+
+            document.getElementById('dept-program').innerHTML = staticProgram + customProgram;
+            
+            // Check Admin Rights for the Department est supprimé car déplacé sur le Dashboard
+
+            loadDeptJournal(deptId);
+
+            // Communauté JAD Logic (REAL CHAT)
+            if (deptId === 'jad') {
+                document.getElementById('jad-community-section').style.display = 'block';
+                loadJadChat();
+
+                const chatForm = document.getElementById('jad-chat-form');
+                chatForm.onsubmit = function(e) {
+                    e.preventDefault();
+                    const text = document.getElementById('jad-chat-input').value.trim();
+                    if (!text) return;
+
+                    const userId = auth.currentUser ? auth.currentUser.tel : 'guest';
+                    const userName = auth.currentUser ? (auth.currentUser.prenom + ' ' + auth.currentUser.name) : 'Anonyme';
+                    
+                    const newMessage = {
+                        id: Date.now(),
+                        userId: userId,
+                        user: userName,
+                        text: text,
+                        time: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })
+                    };
+
+                    const saved = JSON.parse(localStorage.getItem('ebenezer_jad_chat') || '[]');
+                    saved.push(newMessage);
+                    localStorage.setItem('ebenezer_jad_chat', JSON.stringify(saved));
+                    
+                    document.getElementById('jad-chat-input').value = '';
+                    loadJadChat(true); // Scroll to bottom on own message
+                };
+
+                // Auto-refresh chat every 3 seconds to feel "Real"
+                setInterval(loadJadChat, 3000);
+            }
+        } else {
+            document.getElementById('dept-title').textContent = "Département Introuvable";
+            document.getElementById('dept-desc').textContent = "Veuillez sélectionner un ministère valide depuis la page d'accueil.";
+        }
+        function loadDeptJournal(id) {
+            const saved = JSON.parse(localStorage.getItem('ebenezer_cms_content') || '[]');
+            const grid = document.getElementById('dept-journal-grid');
+            const section = document.getElementById('dept-journal-section');
+            if (!grid) return;
+
+            // Filter news for this department
+            const articles = saved.filter(item => item.type === 'news' && item.target === id);
+            
+            if (articles.length > 0) {
+                section.style.display = 'block';
+                grid.innerHTML = articles.map(art => {
+                    const imgHtml = art.image ? `<img src="${art.image}" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:1rem; border:1px solid var(--glass-border);">` : '';
+                    return `
+                    <div style="background: var(--glass-bg); padding: 2rem; border-radius: 12px; border-top: 4px solid var(--accent-color);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-color); color: #000; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 5px;">ACTUALITÉ</span>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">${art.date}</span>
+                        </div>
+                        ${imgHtml}
+                        <h3 style="color: #fff; margin-bottom: 1rem;">${art.title}</h3>
+                        <p style="color: var(--text-color); font-size: 0.95rem; line-height: 1.6; white-space: pre-line;">${art.content}</p>
+                    </div>
+                `}).join('');
+            }
+        }
+
+        function loadJadChat(forceScroll = false) {
+            const chatBox = document.getElementById('jad-chat-box');
+            if (!chatBox) return;
+
+            const saved = JSON.parse(localStorage.getItem('ebenezer_jad_chat') || '[]');
+            const currentUserId = auth.currentUser ? auth.currentUser.tel : 'guest';
+            
+            const chatHtml = saved.map(msg => {
+                const isMe = msg.userId === currentUserId;
+                return `
+                    <div style="display: flex; flex-direction: column; align-items: ${isMe ? 'flex-end' : 'flex-start'}; width: 100%;">
+                        <div style="max-width: 80%; background: ${isMe ? 'rgba(212, 175, 55, 0.2)' : 'rgba(255,255,255,0.05)'}; padding: 1rem 1.2rem; border-radius: ${isMe ? '20px 20px 0 20px' : '20px 20px 20px 0'}; border: 1px solid ${isMe ? 'var(--accent-color)' : 'var(--glass-border)'}; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <div style="font-size: 0.75rem; font-weight: 800; color: ${isMe ? 'var(--accent-color)' : '#fff'}; margin-bottom: 5px;">${isMe ? 'Moi' : msg.user}</div>
+                            <div style="color: #fff; font-size: 0.95rem; line-height: 1.4;">${msg.text}</div>
+                            <div style="font-size: 0.65rem; color: var(--text-muted); text-align: right; margin-top: 5px;">${msg.time}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const shouldScroll = forceScroll || (chatBox.scrollHeight - chatBox.scrollTop <= chatBox.clientHeight + 100);
+            chatBox.innerHTML = chatHtml;
+            
+            if (shouldScroll) {
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+    </script>
+
+    <!-- Floating Language Selector -->
+    <div class="floating-lang-container">
+        <div class="lang-icon">
+            <i class="fa-solid fa-globe"></i>
+        </div>
+        <div id="google_translate_element"></div>
+    </div>
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr', autoDisplay: false}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

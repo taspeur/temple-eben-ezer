@@ -1,0 +1,9 @@
+.agent
+.agents
+.qodo
+extension-debug.log
+grok_logs.csv
+__pycache__/
+*.pyc
+node_modules/
+.env

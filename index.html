@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Eben-Ezer | Église Évangélique</title>
+    <meta name="description" content="Bienvenue au Temple Eben-Ezer. Découvrez nos horaires, nos départements et accédez à l'espace membre.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="https://tse3.mm.bing.net/th/id/OIP.Y-EC0XyjbvVGH3ZyhFHExgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo" class="top-right-logo">
+
+    <!-- Vérification de connexion : redirige vers welcome.html si non connecté -->
+    <script>
+        (function() {
+            const session = JSON.parse(localStorage.getItem('ebenezer_session'));
+            if (!session) {
+                window.location.href = 'welcome.html';
+            }
+        })();
+    </script>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo-container">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.YL2roIxn1owfBYM6uV2c1wHaDe?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Temple Eben-Ezer" class="logo-img">
+            <div style="display: flex; flex-direction: column;">
+                <div class="logo-title" style="display: none;">Eben-Ezer</div>
+                <div class="logo-subtitle">Jusqu'ici l'Éternel nous a secourus</div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#departements">Ministères</a></li>
+            <li><a href="#structure">Organisation</a></li>
+            <li><a href="#audiovisuel">Audiovisuel</a></li>
+            <li><a href="#dons" style="color: var(--accent-color); font-weight: 700;">Dons</a></li>
+        </ul>
+        <div id="real-time-clock" style="color: var(--accent-color); font-weight: 700; font-family: monospace; font-size: 0.9rem; margin-right: 1rem; background: rgba(0,0,0,0.3); padding: 5px 12px; border-radius: 50px; border: 1px solid var(--accent-color); min-width: 85px; text-align: center;">--:--:--</div>
+        <a href="#" class="btn-member" id="openModalBtn">Espace Membre</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+        </div>
+        <div class="hero-content">
+            <div class="slogan">Bienvenue au Temple Eben-Ezer</div>
+            <h1 class="hero-title">Une Église Famille</h1>
+            <div class="hero-cta" style="justify-content: center;">
+                <a href="#programme" class="btn-primary">Découvrir nos cultes</a>
+            </div>
+            <!-- Verset du Jour Intégré -->
+            <div id="verset-du-jour" style="margin-top: 2.5rem; background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--accent-color); backdrop-filter: blur(5px); display: inline-block; max-width: 800px; animation: slideIn 1s ease;">
+                <p style="color: var(--accent-color); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;"><i class="fa-solid fa-star"></i> Verset du Jour</p>
+                <p class="verset-texte" style="color: #fff; font-size: 1.1rem; font-style: italic; margin-top: 10px;">Chargement...</p>
+                <p class="verset-ref" style="color: var(--accent-color); font-weight: 600; margin-top: 8px; font-size: 0.9rem;"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="a-propos" class="section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Qui sommes-nous</span>
+                <h2 class="section-title">Notre Mission & Vision</h2>
+            </div>
+            <div class="about-content" style="text-align: center;">
+                <p>Le Temple Eben-Ezer est une communauté fervente et passionnée par Jésus-Christ. Nous nous engageons à prêcher l'Évangile pur, à faire des disciples et à démontrer l'amour de Dieu dans notre société.</p>
+                
+                <ul class="pillars">
+                    <li>
+                        <strong>Adoration & Louange</strong>
+                        Célébrer Dieu dans l'Esprit et la vérité, au cœur de notre service divin.
+                    </li>
+                    <li>
+                        <strong>Évangélisation & Missions</strong>
+                        Accomplir l'appel suprême de faire des nations des disciples (Matthieu 28:19).
+                    </li>
+                    <li>
+                        <strong>Édification & Communion</strong>
+                        Enseigner la Parole pour former des chrétiens matures et fortifier les liens fraternels.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos Croyances (Doctrines des ADD) -->
+    <section id="croyances" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Fondements Bibliques</span>
+                <h2 class="section-title">Ce que nous croyons</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    En tant qu'église locale rattachée au mouvement des Assemblées de Dieu, notre foi repose sur les Saintes Écritures. Voici quelques-unes de nos vérités fondamentales :
+                </p>
+            </div>
+            <div class="dept-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="resource-card" style="text-align: left;">
+                    <div class="res-type">Écritures</div>
+                    <h3 style="font-size: 1.2rem;">L'Infaillibilité de la Bible</h3>
+                    <p>Nous croyons que la Bible est la Parole inspirée de Dieu, règle infaillible de foi et de conduite.</p>
+                </div>
+                <div class="resource-card" style="text-align: left;">
+                    <div class="res-type">Divinité</div>
+                    <h3 style="font-size: 1.2rem;">La Trinité</h3>
+                    <p>Nous croyons en un seul Dieu, éternellement existant en trois personnes : le Père, le Fils et le Saint-Esprit.</p>
+                </div>
+                <div class="resource-card" style="text-align: left;">
+                    <div class="res-type">Salut</div>
+                    <h3 style="font-size: 1.2rem;">Le Salut par la Grâce</h3>
+                    <p>Le seul moyen d'être purifié du péché est la repentance et la foi au sang précieux de Jésus-Christ.</p>
+                </div>
+                <div class="resource-card" style="text-align: left;">
+                    <div class="res-type">Esprit-Saint</div>
+                    <h3 style="font-size: 1.2rem;">Le Baptême dans le Saint-Esprit</h3>
+                    <p>Nous croyons au baptême dans le Saint-Esprit, selon Actes 2:4, donné aux croyants qui le demandent.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="btn-primary" style="font-size: 0.9rem;" onclick="alert('Lien vers le document des 16 Vérités Fondamentales des ADD'); return false;">Voir les 16 Vérités Fondamentales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pasteurs Section -->
+    <section id="pasteurs" class="section" style="background: var(--bg-color);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Leadership</span>
+                <h2 class="section-title">Nos Pasteurs</h2>
+            </div>
+            <div class="dept-grid">
+                <div class="dept-card" style="text-align: center;">
+                    <img src="michel_ouedraogo.jpg" alt="Pasteur Principal" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 4px solid var(--accent-color);">
+                    <h3>Pasteur Michel OUEDRAOGO</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Pasteur Principal. Avec plus de nombreuses années de ministère, il est engagé dans l'enseignement profond de la parole de Dieu et l'édification de la foi. Son parcours est marqué par un fort dévouement pastoral.</p>
+                </div>
+                <div class="dept-card" style="text-align: center;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background: var(--glass-bg); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--accent-color);">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3>Pasteur Adjoint</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">(Espace pour ajouter la photo et le parcours du pasteur adjoint).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Section -->
+    <section id="structure" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Organisation</span>
+                <h2 class="section-title">Structure de l'Église</h2>
+            </div>
+            <div class="contact-grid">
+                <div style="background: var(--glass-bg); padding: 2rem; border-radius: 12px;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;"><i class="fa-solid fa-building-columns"></i> Structure Principale</h3>
+                    <ul style="list-style: none; color: var(--text-color); line-height: 1.8;">
+                        <li><i class="fa-solid fa-check" style="color:var(--accent-color); margin-right: 8px;"></i> <b>Le Bureau de l'Église Locale :</b> Dirigé par le Pasteur Principal</li>
+                        <li><i class="fa-solid fa-check" style="color:var(--accent-color); margin-right: 8px;"></i> <b>Le Conseil des Anciens :</b> Gouvernance spirituelle</li>
+                        <li><i class="fa-solid fa-check" style="color:var(--accent-color); margin-right: 8px;"></i> <b>Le Diaconat :</b> Gestion administrative et sociale</li>
+                    </ul>
+                </div>
+                <div style="background: var(--glass-bg); padding: 2rem; border-radius: 12px; grid-column: 1 / -1;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 2rem;"><i class="fa-solid fa-sitemap"></i> Commissions & Départements Spécifiques</h3>
+                    <div id="structures-detailed-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+                        <!-- List will be injected by JS -->
+                    </div>
+                </div>
+                <div id="organisation-journal-container" style="display: none; grid-column: 1 / -1; margin-top: 2rem;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 2rem; text-align: center;"><i class="fa-solid fa-bullhorn"></i> Mots du Bureau & Organisation</h3>
+                    <div id="organisation-journal-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departements" class="section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Ministères de l'Église Locale</span>
+                <h2 class="section-title">Mouvements & Départements (ADD)</h2>
+            </div>
+            <div class="dept-grid">
+                <div class="dept-card" onclick="window.location.href='departement.html?id=caleb'" style="cursor: pointer;">
+                    <div class="dept-icon"><i class="fa-solid fa-person" style="color: var(--accent-color);"></i></div>
+                    <h3>Génération Caleb</h3>
+                    <p>Le mouvement des aînés et retraités de l'église, consacrés au service du Seigneur Jésus-Christ avec sagesse et ferveur.</p>
+                </div>
+                <div class="dept-card" onclick="window.location.href='departement.html?id=asc'" style="cursor: pointer;">
+                    <div class="dept-icon"><img src="https://www.eadbf.org/asc/wp-content/uploads/sites/3/2024/10/Logo-ASC5.png" alt="Logo ASC" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                    <h3>A.S.C (Action des Sœurs)</h3>
+                    <p>L'Action des Sœurs pour Christ rassemble les mamans et sœurs pour l'intercession, le social, et le maintien de la flamme au foyer.</p>
+                </div>
+                <div class="dept-card" onclick="window.location.href='departement.html?id=jad'" style="cursor: pointer;">
+                    <div class="dept-icon"><img src="https://www.eadbf.org/jad/wp-content/uploads/sites/2/2024/11/cropped-Logo-Circulaire-JAD.png" alt="Logo JAD" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                    <h3>J.A.D (Jeunesse)</h3>
+                    <p>La Jeunesse des Assemblées de Dieu est le fer de lance de l'église, dédiée aux programmes d'encadrement, d'évangélisation et de loisirs chrétiens.</p>
+                </div>
+                <div class="dept-card" onclick="window.location.href='departement.html?id=edd'" style="cursor: pointer;">
+                    <div class="dept-icon"><img src="https://tse4.mm.bing.net/th/id/OIP.ZxotS34IBYgmooW4sNuc7gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo EDD" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                    <h3>E.D.D (École du Dimanche)</h3>
+                    <p>Inculquer les bases de la parole de Dieu aux enfants dès le bas âge, structuré selon des classes d'âge adaptées.</p>
+                </div>
+                <div class="dept-card" onclick="window.location.href='departement.html?id=chorale'" style="cursor: pointer;">
+                    <div class="dept-icon"><i class="fa-solid fa-music" style="color: var(--accent-color);"></i></div>
+                    <h3>Chœur & Adoration</h3>
+                    <p>Pour tout membre baptisé désirant servir le Seigneur à travers le chant, la musique et le son.</p>
+                </div>
+                <div class="dept-card" onclick="window.location.href='departement.html?id=mheb'" style="cursor: pointer;">
+                    <div class="dept-icon"><img src="https://tse1.mm.bing.net/th/id/OIP.KXfFhv3NVbdrwlhNIj91iQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo MHEB" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                    <h3>M.H.E.B (Hommes)</h3>
+                    <p>Le Mouvement des Hommes de l'Église au Burkina rassemble les frères pour la prière et l'action évangélique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="programme" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Rassemblements</span>
+                <h2 class="section-title">Horaires de nos Cultes</h2>
+            </div>
+            <div class="schedule-grid" id="main-schedule-grid">
+                <!-- Data will be injected by JS -->
+            </div>
+            <!-- Container for dynamic admin programs -->
+            <div id="dynamic-programs-accueil" style="margin-top: 2rem;"></div>
+        </div>
+    </section>
+
+    <!-- Resources Section / Member Preview -->
+    <section id="ressources" class="section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Édification</span>
+                <h2 class="section-title">Ressources & Messages</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Découvrez nos dernières prédications. (Accès complet réservé aux membres)</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="res-type">Audio</div>
+                    <h3>La puissance de la prière fervente</h3>
+                    <p>Prêché le dimanche dernier. Un message puissant sur l'impact de l'intercession.</p>
+                    <a href="#" class="btn-text" onclick="document.getElementById('openModalBtn').click(); return false;">Écouter (Connexion requise) &rarr;</a>
+                </div>
+                <div class="resource-card">
+                    <div class="res-type">PDF</div>
+                    <h3>Études Bibliques: Le livre des Actes</h3>
+                    <p>Série d'enseignements du mois en cours avec notes et références.</p>
+                    <a href="#" class="btn-text" onclick="document.getElementById('openModalBtn').click(); return false;">Télécharger (Connexion requise) &rarr;</a>
+                </div>
+                <div class="resource-card">
+                    <div class="res-type">Direct</div>
+                    <h3>Rediffusion du Culte</h3>
+                    <p>Revivez les moments forts de notre dernière célébration.</p>
+                    <a href="#" class="btn-text" onclick="document.getElementById('openModalBtn').click(); return false;">Visionner (Connexion requise) &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bibliothèque Section -->
+    <section id="bibliotheque" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Ressources</span>
+                <h2 class="section-title">Bibliothèque</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Ouvrages, documents et études pour votre croissance religieuse.</p>
+            </div>
+            <div class="dept-grid">
+                <!-- 1: Bible -->
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fa-solid fa-book-bible" style="color: var(--accent-color);"></i></div>
+                    <h3>La Sainte Bible</h3>
+                    <p>Traduction Louis Segond (1910)<br>Le texte intégral de la parole de Dieu en un seul fichier de haute qualité.</p>
+                    <a href="bibliotheque/La_Sainte_Bible_LSG.pdf" download="Sainte_Bible_LSG.pdf" target="_blank" class="btn-primary" style="margin-top: 1rem; width: 100%; text-align: center;"><i class="fa-solid fa-download"></i> Télécharger PDF</a>
+                </div>
+                <!-- 2: Voyage du Pèlerin -->
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fa-solid fa-person-walking" style="color: #4CAF50;"></i></div>
+                    <h3>Le Voyage du Pèlerin</h3>
+                    <p>Allégorie par John Bunyan<br>Un chef-d’œuvre mondial sur les combats et la victoire de la marche chrétienne.</p>
+                    <a href="https://bpc-strasbourg.fr/wp-content/uploads/2016/11/Le_Voyage_du_Pelerin.pdf" download target="_blank" class="btn-text" style="color: #4CAF50; border-color: #4CAF50;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+                </div>
+                <!-- 3: Imitation -->
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fa-solid fa-cross" style="color: #3498db;"></i></div>
+                    <h3>L'Imitation de Jésus-Christ</h3>
+                    <p>Thomas a Kempis<br>Ouvrage classique fondamental d'édification personnelle et de piété divine.</p>
+                    <a href="http://jesusmarie.free.fr/imitation_de_jesus_christ.pdf" download target="_blank" class="btn-text" style="color: #3498db; border-color: #3498db;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+                </div>
+                <!-- 4: Prière -->
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fa-solid fa-hands-praying" style="color: #e74c3c;"></i></div>
+                    <h3>La Prière Fervente</h3>
+                    <p>Enseignements sur la prière<br>La véritable puissance spirituelle qui s'obtient dans le lieu secret.</p>
+                    <a href="http://www.samizdat.qc.ca/publications/pdf/PriereFervente.pdf" download target="_blank" class="btn-text" style="color: #e74c3c; border-color: #e74c3c;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+                </div>
+                <!-- 5: Esprit -->
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fa-solid fa-fire" style="color: #9b59b6;"></i></div>
+                    <h3>Marcher par l'Esprit</h3>
+                    <p>Guidance spirituelle<br>Manuel pour laisser le Saint-Esprit accomplir l'œuvre de Dieu dans votre vie.</p>
+                    <a href="http://www.samizdat.qc.ca/publications/pdf/MarcheEsprit_MB.pdf" download target="_blank" class="btn-text" style="color: #9b59b6; border-color: #9b59b6;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+                </div>
+                <!-- 6: Doctrines -->
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fa-solid fa-book-open" style="color: #f1c40f;"></i></div>
+                    <h3>Doctrines Fondamentales</h3>
+                    <p>Étude Biblique<br>Les fondements de la foi chrétienne pour asseoir vos convictions bibliquement.</p>
+                    <a href="http://www.samizdat.qc.ca/publications/pdf/Fondements.pdf" download target="_blank" class="btn-text" style="color: #f1c40f; border-color: #f1c40f;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dons et Offrandes Section -->
+    <section id="dons" class="section" style="background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&w=1920&q=80') center/cover; text-align: center;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Dîmes & Offrandes</span>
+                <h2 class="section-title">Soutenir l'Œuvre de Dieu</h2>
+                <p style="color: #fff; margin-top: 1.5rem; max-width: 700px; margin-inline: auto; font-size: 1.1rem;">
+                    "Que chacun donne comme il l'a résolu en son cœur, sans tristesse ni contrainte; car Dieu aime celui qui donne avec joie." (2 Corinthiens 9:7)
+                </p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap;">
+                    <a href="#" class="btn-primary" onclick="alert('Redirection Mobile Money (Orange/Moov)'); return false;">Dons par Mobile Money</a>
+                    <a href="#" class="btn-member" style="color: #fff; border-color: #fff;" onclick="alert('Affichage RIB Bancaire'); return false;">Virement Bancaire (RIB)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal de l'Église Section -->
+    <section id="journal" class="section" style="background: var(--secondary-color);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Actualités</span>
+                <h2 class="section-title">Le Journal d'Eben-Ezer</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Restez connectés aux dernières nouvelles et éditos de l'équipe de rédaction.</p>
+            </div>
+            <div id="church-journal-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem;">
+                <!-- Articles injected by JS -->
+                <div style="background: var(--glass-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <div style="color: var(--accent-color); font-weight: 700; margin-bottom: 0.5rem;">ÉDITORIAL</div>
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Bienvenue sur notre nouveau portail</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Nous sommes heureux de lancer ce nouveau journal numérique pour vous tenir informés des activités et des témoignages de notre communauté.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Division Audiovisuelle Section -->
+    <section id="audiovisuel" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Communication & Média</span>
+                <h2 class="section-title">Division Audiovisuelle</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Le cœur technologique et éditorial du Temple Eben-Ezer.</p>
+            </div>
+            
+            <div id="audiovisuel-branches-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem;">
+                <!-- Branche: Rédaction -->
+                <div class="dept-card" style="border-top: 4px solid var(--accent-color);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 2rem;">
+                        <div style="font-size: 2rem; color: var(--accent-color);"><i class="fa-solid fa-pen-nib"></i></div>
+                        <h3 style="margin: 0;">Pôle Rédaction</h3>
+                    </div>
+                    <div id="pool-redaction-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <!-- Injected by JS -->
+                        <p style="color: var(--text-muted); font-style: italic;">Configuration en cours par l'admin...</p>
+                    </div>
+                </div>
+
+                <!-- Branche: Assistance Technique -->
+                <div class="dept-card" style="border-top: 4px solid #3498db;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 2rem;">
+                        <div style="font-size: 2rem; color: #3498db;"><i class="fa-solid fa-gears"></i></div>
+                        <h3 style="margin: 0;">Assistance Technique</h3>
+                    </div>
+                    <div id="pool-technique-list">
+                        <!-- Injected by JS -->
+                        <p style="color: var(--text-muted); font-style: italic;">Configuration en cours...</p>
+                    </div>
+                </div>
+
+                <!-- Branche: Assistance Vidéo -->
+                <div class="dept-card" style="border-top: 4px solid #e74c3c;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 2rem;">
+                        <div style="font-size: 2rem; color: #e74c3c;"><i class="fa-solid fa-video"></i></div>
+                        <h3 style="margin: 0;">Assistance Vidéo</h3>
+                    </div>
+                    <div id="pool-video-list">
+                        <!-- Injected by JS -->
+                        <p style="color: var(--text-muted); font-style: italic;">Configuration en cours...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.YL2roIxn1owfBYM6uV2c1wHaDe?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Temple Eben-Ezer" class="logo-img" style="margin-bottom: 1rem; max-height: 80px;">
+                    <br>
+                    <div class="logo-title" style="display: none;">Eben-Ezer</div>
+                    <p>Une église passionnée par la présence de Dieu et engagée à impacter notre génération avec l'Évangile de grâce.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#programme">Horaires des cultes</a></li>
+                        <li><a href="#departements">Départements</a></li>
+                        <li><a href="#contact">Nous contacter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Temple Eben-Ezer. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Member Area -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3>Espace Membre</h3>
+                <p>Veuillez vous authentifier pour accéder au portail</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <input type="email" placeholder="Email du membre" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <input type="password" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Se Connecter</button>
+            </form>
+            <div class="modal-footer">
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Contactez le secrétariat pour vos accès personnels.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr', autoDisplay: false}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/versets.js"></script>
+
+    <!-- Floating Language Selector -->
+    <div class="floating-lang-container">
+        <div class="lang-icon">
+            <i class="fa-solid fa-globe"></i>
+        </div>
+        <div id="google_translate_element"></div>
+    </div>
+
+    <script>
+        // Real-time Clock Logic
+        function updateClock() {
+            const clockEl = document.getElementById('real-time-clock');
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            // Simple version for the small nav element
+            const timeStr = now.toLocaleTimeString('fr-FR');
+            clockEl.textContent = timeStr;
+            // You can also add the full date somewhere else
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Modal Logic
+        const modal = document.getElementById("memberModal");
+        const btn = document.getElementById("openModalBtn");
+        const span = document.getElementsByClassName("close-modal")[0];
+
+        btn.onclick = function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function loadCmsArticles() {
+            const saved = JSON.parse(localStorage.getItem('ebenezer_cms_content') || '[]');
+            const grid = document.getElementById('church-journal-grid');
+            if (!grid) return;
+
+            // Load Organisation specific news
+            const orgArticles = saved.filter(item => item.type === 'news' && item.target === 'organisation');
+            const orgContainer = document.getElementById('organisation-journal-container');
+            const orgGrid = document.getElementById('organisation-journal-grid');
+            if (orgContainer && orgGrid && orgArticles.length > 0) {
+                orgContainer.style.display = 'block';
+                orgGrid.innerHTML = orgArticles.map(art => {
+                    const imgHtml = art.image ? `<img src="${art.image}" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:1rem; border:1px solid var(--glass-border);">` : '';
+                    return `
+                        <div style="background: var(--glass-bg); padding: 2rem; border-radius: 12px; border-top: 4px solid var(--accent-color);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="background: var(--accent-color); color: #000; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 5px;">ANnonce Organiation</span>
+                                <span style="color: var(--text-muted); font-size: 0.8rem;">${art.date}</span>
+                            </div>
+                            ${imgHtml}
+                            <h3 style="color: #fff; margin-bottom: 1rem;">${art.title}</h3>
+                            <p style="color: var(--text-color); font-size: 0.95rem; line-height: 1.6; white-space: pre-line;">${art.content}</p>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Show 'news' type content. If targeting 'all' or no target, it's global.
+            // If targeting a dept, we show it with a label.
+            const articles = saved.filter(item => item.type === 'news');
+            
+            if (articles.length > 0) {
+                let html = `
+                    <div style="background: var(--glass-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+                        <div style="color: var(--accent-color); font-weight: 700; margin-bottom: 0.5rem;">ÉDITORIAL</div>
+                        <h3 style="color: #fff; margin-bottom: 1rem;">Bienvenue sur notre nouveau portail</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Nous sommes heureux de lancer ce nouveau journal numérique pour vous tenir informés des activités et des témoignages de notre communauté.</p>
+                    </div>
+                `;
+                articles.forEach(art => {
+                    const targetLabel = art.target && art.target !== 'all' ? art.target.toUpperCase() : 'A LA UNE';
+                    const imgHtml = art.image ? `<img src="${art.image}" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:1rem; border:1px solid var(--glass-border);">` : '';
+                    html += `
+                        <div style="background: var(--glass-bg); padding: 2rem; border-radius: 12px; border-top: 4px solid var(--accent-color);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="background: var(--accent-color); color: #000; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 5px;">${targetLabel}</span>
+                                <span style="color: var(--text-muted); font-size: 0.8rem;">${art.date}</span>
+                            </div>
+                            ${imgHtml}
+                            <h3 style="color: #fff; margin-bottom: 1rem;">${art.title}</h3>
+                            <p style="color: var(--text-color); font-size: 0.95rem; line-height: 1.6; white-space: pre-line;">${art.content}</p>
+                            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: var(--accent-color);">
+                                <i class="fa-solid fa-pen-nib"></i> Par l'Équipe de Rédaction
+                            </div>
+                        </div>
+                    `;
+                });
+                grid.innerHTML = html;
+            }
+        }
+
+        // Load saved custom groups
+        function loadGroups() {
+            const defaultStructures = [
+                { name: "Commission des Finances", leader: "Trésorier Général", desc: "Gestion rigoureuse et transparente des ressources financières.", image: "https://images.unsplash.com/photo-1554224155-6726b3fb8552?auto=format&fit=crop&w=400" },
+                { name: "Groupes de Maison (MDE)", leader: "Coordonnateur MDE", desc: "Cellules de prière et d'édification dans les quartiers.", image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=400" },
+                { name: "Multimédia & Son", leader: "Directeur Technique", desc: "Rayonnement numérique et qualité sonore des cultes.", image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=400" }
+            ];
+
+            // Initial setup if it's the first time
+            if (!localStorage.getItem('ebenezer_structures_init')) {
+                localStorage.setItem('ebenezer_structures', JSON.stringify(defaultStructures));
+                localStorage.setItem('ebenezer_structures_init', 'true');
+            }
+
+            const saved = JSON.parse(localStorage.getItem('ebenezer_structures') || '[]');
+            const grid = document.getElementById('structures-detailed-grid');
+            if (!grid) return;
+
+            grid.innerHTML = saved.map((s, index) => `
+                <div style="background: var(--glass-bg); padding: 0; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); transition: transform 0.3s ease;">
+                    <div style="height: 150px; width: 100%; overflow: hidden;">
+                        <img src="${s.image}" alt="${s.name}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 5px;">${s.name}</h4>
+                            ${auth.isAdmin() ? `<button onclick="deleteStructure(${index})" style="background:none; border:none; color:#ff4d4d; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>` : ''}
+                        </div>
+                        <div style="color: var(--accent-color); font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--accent-color); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.7rem;">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <span>${s.leader}</span>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">${s.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteStructure(index) {
+            if (!confirm('Supprimer cette structure ?')) return;
+            const saved = JSON.parse(localStorage.getItem('ebenezer_structures') || '[]');
+            saved.splice(index, 1);
+            localStorage.setItem('ebenezer_structures', JSON.stringify(saved));
+            loadGroups();
+        }
+
+        // Load dynamic programs from admin
+        function loadDynamicPrograms() {
+            // 1. Static/Editable main schedule
+            const defaultSchedule = [
+                { day: "Dimanche", event: "Culte d'Adoration et d'Action de Grâce", time: "08:00 - 11:30" }
+            ];
+            let mainSchedule = JSON.parse(localStorage.getItem('ebenezer_main_schedule') || JSON.stringify(defaultSchedule));
+            
+            // Auto-cleanup: if the saved schedule has 3 items (the old Tuesday/Thursday/Sunday), reset to new default
+            if (mainSchedule.length === 3 && mainSchedule[0].day === "Mardi") {
+                mainSchedule = defaultSchedule;
+                localStorage.setItem('ebenezer_main_schedule', JSON.stringify(defaultSchedule));
+            }
+
+            const mainGrid = document.getElementById('main-schedule-grid');
+            if (mainGrid) {
+                mainGrid.innerHTML = mainSchedule.map(s => `
+                    <div class="schedule-item">
+                        <div class="day">${s.day}</div>
+                        <div class="event">${s.event}</div>
+                        <div class="time">${s.time}</div>
+                    </div>
+                `).join('');
+            }
+
+            // 2. Special programs
+            const saved = JSON.parse(localStorage.getItem('ebenezer_custom_programs') || '[]');
+            const container = document.getElementById('dynamic-programs-accueil');
+            if (!container) return;
+
+            const accueilProgs = saved.filter(p => p.target === 'accueil');
+            if (accueilProgs.length > 0) {
+                let html = '<h3 style="color: var(--accent-color); font-size: 1.2rem; margin: 2rem 0 1rem; text-align: center; text-transform: uppercase;">Événements Spéciaux</h3>';
+                html += '<div class="schedule-grid">';
+                accueilProgs.forEach(p => {
+                    html += `
+                        <div class="schedule-item" style="border-color: #fff; background: rgba(212, 175, 55, 0.1);">
+                            <div class="day" style="color: #fff;">${p.day}</div>
+                            <div class="event" style="color: var(--accent-color);"><i class="fa-solid fa-star"></i> ${p.title}</div>
+                            <div class="time" style="color: #fff;">${p.time}</div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                container.innerHTML = html;
+            }
+        }
+
+        // Show admin panel if admin is logged in
+        function loadAudiovisuelTeam() {
+            const team = JSON.parse(localStorage.getItem('ebenezer_audio_team') || '{}');
+            
+            // Pool Rédaction
+            const redList = document.getElementById('pool-redaction-list');
+            if (redList) {
+                const subRed = (team.redaction || []);
+                const managers = subRed.filter(m => m.role === 'manager');
+                const editors = subRed.filter(m => m.role === 'editor');
+                const layout = subRed.filter(m => m.role === 'layout');
+
+                let html = '';
+                if (managers.length) html += `<div><h5 style="color:var(--accent-color); font-size: 0.8rem; text-transform:uppercase; margin-bottom:8px;">Gestion d'Équipe</h5><div style="color:#fff; font-size:0.95rem;">${managers.map(m => m.name).join(', ')}</div></div>`;
+                if (editors.length) html += `<div><h5 style="color:var(--accent-color); font-size: 0.8rem; text-transform:uppercase; margin-bottom:8px;">Chargés de Rédaction</h5><div style="color:#fff; font-size:0.95rem;">${editors.map(m => m.name).join(', ')}</div></div>`;
+                if (layout.length) html += `<div><h5 style="color:var(--accent-color); font-size: 0.8rem; text-transform:uppercase; margin-bottom:8px;">Mise en Page</h5><div style="color:#fff; font-size:0.95rem;">${layout.map(m => m.name).join(', ')}</div></div>`;
+                
+                if (html) redList.innerHTML = html;
+            }
+
+            // Technique
+            const techList = document.getElementById('pool-technique-list');
+            if (techList && team.technique) {
+                techList.innerHTML = `<div style="color:#fff; font-size:0.95rem;"><i class="fa-solid fa-user-gear" style="color:#3498db; margin-right:8px;"></i> ${team.technique}</div>`;
+            }
+
+            // Vidéo
+            const videoList = document.getElementById('pool-video-list');
+            if (videoList && team.video) {
+                videoList.innerHTML = `<div style="color:#fff; font-size:0.95rem;"><i class="fa-solid fa-id-card-clip" style="color:#e74c3c; margin-right:8px;"></i> ${team.video}</div>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGroups();
+            loadDynamicPrograms();
+            loadCmsArticles();
+            loadAudiovisuelTeam();
+            if (auth.isAdmin()) {
+                const adminEl = document.getElementById('admin-add-group');
+                if (adminEl) adminEl.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
