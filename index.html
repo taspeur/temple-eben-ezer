@@ -276,52 +276,39 @@
     <section id="bibliotheque" class="section">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">Ressources</span>
-                <h2 class="section-title">Bibliothèque</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Ouvrages, documents et études pour votre croissance religieuse.</p>
+                <span class="section-subtitle">Espace Littérature Chrétienne</span>
+                <h2 class="section-title">La Bibliothèque d'Eben-Ezer</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Accédez à une sélection rigoureuse d'ouvrages spirituels pour votre édification.</p>
             </div>
-            <div class="dept-grid">
-                <!-- 1: Bible -->
-                <div class="dept-card">
-                    <div class="dept-icon"><i class="fa-solid fa-book-bible" style="color: var(--accent-color);"></i></div>
-                    <h3>La Sainte Bible</h3>
-                    <p>Traduction Louis Segond (1910)<br>Le texte intégral de la parole de Dieu en un seul fichier de haute qualité.</p>
-                    <a href="bibliotheque/La_Sainte_Bible_LSG.pdf" download="Sainte_Bible_LSG.pdf" target="_blank" class="btn-primary" style="margin-top: 1rem; width: 100%; text-align: center;"><i class="fa-solid fa-download"></i> Télécharger PDF</a>
+
+            <!-- Library Choice Screen (Initial State) -->
+            <div id="lib-choice-screen" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;">
+                <div onclick="openLibrarySection('free')" style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(0,0,0,0.4)); border: 2px solid rgba(255,215,0,0.3); padding: 4rem 2rem; border-radius: 25px; text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;" onmouseover="this.style.transform='scale(1.05)'; this.style.borderColor='#ffd700'; this.style.boxShadow='0 20px 40px rgba(255,215,0,0.2)'" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,215,0,0.3)'; this.style.boxShadow='none'">
+                    <div style="font-size: 4rem; color: #ffd700; margin-bottom: 2rem;"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <h3 style="color: #fff; font-size: 2rem; margin-bottom: 1rem;">Section Gratuite</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Téléchargez librement les classiques et les notes de culte mis à disposition par l'église.</p>
+                    <div style="margin-top: 2rem; display: inline-block; padding: 12px 30px; border-radius: 50px; background: #ffd700; color: #000; font-weight: 800; text-transform: uppercase; font-size: 0.9rem;">Explorer &rarr;</div>
                 </div>
-                <!-- 2: Voyage du Pèlerin -->
-                <div class="dept-card">
-                    <div class="dept-icon"><i class="fa-solid fa-person-walking" style="color: #4CAF50;"></i></div>
-                    <h3>Le Voyage du Pèlerin</h3>
-                    <p>Allégorie par John Bunyan<br>Un chef-d’œuvre mondial sur les combats et la victoire de la marche chrétienne.</p>
-                    <a href="https://bpc-strasbourg.fr/wp-content/uploads/2016/11/Le_Voyage_du_Pelerin.pdf" download target="_blank" class="btn-text" style="color: #4CAF50; border-color: #4CAF50;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+
+                <div onclick="openLibrarySection('paid')" style="background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(0,0,0,0.4)); border: 2px solid rgba(231, 76, 60, 0.3); padding: 4rem 2rem; border-radius: 25px; text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;" onmouseover="this.style.transform='scale(1.05)'; this.style.borderColor='#e74c3c'; this.style.boxShadow='0 20px 40px rgba(231, 76, 60, 0.2)'" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(231, 76, 60, 0.3)'; this.style.boxShadow='none'">
+                    <div style="font-size: 4rem; color: #e74c3c; margin-bottom: 2rem;"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3 style="color: #fff; font-size: 2rem; margin-bottom: 1rem;">Livres Particuliers</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Ouvrages spécifiques et éditions spéciales disponibles à l'achat pour soutenir l'auteur.</p>
+                    <div style="margin-top: 2rem; display: inline-block; padding: 12px 30px; border-radius: 50px; background: #e74c3c; color: #fff; font-weight: 800; text-transform: uppercase; font-size: 0.9rem;">Voir la Boutique &rarr;</div>
                 </div>
-                <!-- 3: Imitation -->
-                <div class="dept-card">
-                    <div class="dept-icon"><i class="fa-solid fa-cross" style="color: #3498db;"></i></div>
-                    <h3>L'Imitation de Jésus-Christ</h3>
-                    <p>Thomas a Kempis<br>Ouvrage classique fondamental d'édification personnelle et de piété divine.</p>
-                    <a href="http://jesusmarie.free.fr/imitation_de_jesus_christ.pdf" download target="_blank" class="btn-text" style="color: #3498db; border-color: #3498db;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+            </div>
+
+            <!-- Dynamic Library View (Hidden by default) -->
+            <div id="lib-content-view" style="display: none; margin-top: 3rem; animation: fadeIn 0.5s ease;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem;">
+                    <button onclick="backToLibChoice()" style="background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 10px 20px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600;">
+                        <i class="fa-solid fa-arrow-left"></i> Retour au choix
+                    </button>
+                    <h3 id="lib-view-title" style="color: #ffd700; text-transform: uppercase; letter-spacing: 2px;">Section Gratuite</h3>
                 </div>
-                <!-- 4: Prière -->
-                <div class="dept-card">
-                    <div class="dept-icon"><i class="fa-solid fa-hands-praying" style="color: #e74c3c;"></i></div>
-                    <h3>La Prière Fervente</h3>
-                    <p>Enseignements sur la prière<br>La véritable puissance spirituelle qui s'obtient dans le lieu secret.</p>
-                    <a href="http://www.samizdat.qc.ca/publications/pdf/PriereFervente.pdf" download target="_blank" class="btn-text" style="color: #e74c3c; border-color: #e74c3c;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
-                </div>
-                <!-- 5: Esprit -->
-                <div class="dept-card">
-                    <div class="dept-icon"><i class="fa-solid fa-fire" style="color: #9b59b6;"></i></div>
-                    <h3>Marcher par l'Esprit</h3>
-                    <p>Guidance spirituelle<br>Manuel pour laisser le Saint-Esprit accomplir l'œuvre de Dieu dans votre vie.</p>
-                    <a href="http://www.samizdat.qc.ca/publications/pdf/MarcheEsprit_MB.pdf" download target="_blank" class="btn-text" style="color: #9b59b6; border-color: #9b59b6;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
-                </div>
-                <!-- 6: Doctrines -->
-                <div class="dept-card">
-                    <div class="dept-icon"><i class="fa-solid fa-book-open" style="color: #f1c40f;"></i></div>
-                    <h3>Doctrines Fondamentales</h3>
-                    <p>Étude Biblique<br>Les fondements de la foi chrétienne pour asseoir vos convictions bibliquement.</p>
-                    <a href="http://www.samizdat.qc.ca/publications/pdf/Fondements.pdf" download target="_blank" class="btn-text" style="color: #f1c40f; border-color: #f1c40f;"><i class="fa-solid fa-cloud-arrow-down"></i> Télécharger PDF</a>
+
+                <div id="dynamic-library-grid" class="dept-grid">
+                    <!-- Dynamic books will land here -->
                 </div>
             </div>
         </div>
@@ -707,6 +694,70 @@
             if (videoList && team.video) {
                 videoList.innerHTML = `<div style="color:#fff; font-size:0.95rem;"><i class="fa-solid fa-id-card-clip" style="color:#e74c3c; margin-right:8px;"></i> ${team.video}</div>`;
             }
+        }
+
+        // Library Dynamic Logic
+        function openLibrarySection(type) {
+            const choiceScreen = document.getElementById('lib-choice-screen');
+            const contentView = document.getElementById('lib-content-view');
+            const viewTitle = document.getElementById('lib-view-title');
+            
+            choiceScreen.style.display = 'none';
+            contentView.style.display = 'block';
+            
+            if (type === 'paid') {
+                viewTitle.textContent = "Livres & Ouvrages de Qualité (Payant)";
+                viewTitle.style.color = "#e74c3c";
+            } else {
+                viewTitle.textContent = "Littérature Chrétienne (Gratuit)";
+                viewTitle.style.color = "#ffd700";
+            }
+
+            loadDynamicLibrary(type);
+        }
+
+        function backToLibChoice() {
+            document.getElementById('lib-choice-screen').style.display = 'grid';
+            document.getElementById('lib-content-view').style.display = 'none';
+        }
+
+        function loadDynamicLibrary(type) {
+            const grid = document.getElementById('dynamic-library-grid');
+            
+            // Seed static books if empty (Gratuit section only)
+            const staticBooks = [
+                { id: 1, title: "La Sainte Bible", author: "Louis Segond", category: "Bible", type: "free", url: "bibliotheque/La_Sainte_Bible_LSG.pdf", cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400" },
+                { id: 2, title: "Le Voyage du Pèlerin", author: "John Bunyan", category: "Allégorie", type: "free", url: "https://bpc-strasbourg.fr/wp-content/uploads/2016/11/Le_Voyage_du_Pelerin.pdf", cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400" },
+                { id: 3, title: "L'Imitation de Jésus-Christ", author: "Thomas a Kempis", category: "Édification", type: "free", url: "http://jesusmarie.free.fr/imitation_de_jesus_christ.pdf", cover: "https://images.unsplash.com/photo-1474932430478-3a7fb9065ba0?auto=format&fit=crop&w=400" }
+            ];
+
+            const saved = JSON.parse(localStorage.getItem('ebenezer_library') || '[]');
+            // Merge static plus dynamic for 'free'
+            const allBooks = [...staticBooks, ...saved];
+            const filtered = allBooks.filter(b => b.type === type);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-muted);">
+                    <i class="fa-solid fa-box-open" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <p>Aucun livre n'est encore disponible dans cette section.</p>
+                </div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(b => `
+                <div class="dept-card" style="display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease;">
+                    <img src="${b.cover}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                    <div style="flex-grow: 1;">
+                        <span style="background: ${b.type === 'paid' ? 'rgba(231, 76, 60, 0.2)' : 'rgba(255, 215, 0, 0.2)'}; color: ${b.type === 'paid' ? '#e74c3c' : '#ffd700'}; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 50px; text-transform: uppercase;">${b.category}</span>
+                        <h3 style="margin: 1rem 0 0.5rem; font-size: 1.25rem; line-height: 1.2;">${b.title}</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">${b.author}</p>
+                    </div>
+                    ${b.type === 'free' 
+                        ? `<a href="${b.url}" target="_blank" class="btn-primary" style="text-align: center; width: 100%; text-decoration: none;"><i class="fa-solid fa-download"></i> Télécharger</a>`
+                        : `<a href="https://wa.me/22654682085?text=Je suis intéressé par le livre payant : ${b.title}" target="_blank" class="btn-primary" style="background: #e74c3c; border-color: #e74c3c; text-align: center; width: 100%; text-decoration: none;"><i class="fa-solid fa-cart-shopping"></i> Acheter / Commander</a>`
+                    }
+                </div>
+            `).join('');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
